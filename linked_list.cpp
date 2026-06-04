@@ -203,9 +203,23 @@ void remove(Node*& head){
         cur = cur -> next;
     }
     cout << "\n";
-
-    
 }
+
+void search(Node* head){
+    cout << "Enter the number that you want to search for.";
+    cin.clear();
+
+    int target;
+    cin >> target;
+    Node* cur = head;
+    while(cur != nullptr && cur ->value != target){
+        cur = cur->next;
+    }
+    if(cur == nullptr)cout << "not found";
+    else cout << "found";
+    return;
+}
+
 int main(){
     Node* head = nullptr;
     Node* tail = nullptr;
@@ -232,7 +246,8 @@ int main(){
     // pushback(head,i);
     // popfront(head);
     // popback(head);
-    remove(head);
+    // remove(head);
+    search(head);
 }
 
 
