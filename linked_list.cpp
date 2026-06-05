@@ -1,5 +1,6 @@
 using namespace std;
 #include<iostream>
+#include<vector>
 struct Node{
         int value;
         Node* next;
@@ -219,7 +220,67 @@ void search(Node* head){
     else cout << "found";
     return;
 }
+void findmiddle(Node* head){
+    // Node* cur = head;
+    // int iter = 0;
+    // while(cur != nullptr){
+    //     cur = cur -> next;
+    //     iter++;
+    // }
+    // cur = head;
+    // if(iter ==  1) cout << cur->value;
+    // else{
+    //     if(iter %2 == 0){
+    //         if(iter == 2) cout << cur -> next -> value;
+    //         else{
+    //             for(int i = 0; i < iter / 2 ; i ++ ){
+    //                 cur = cur -> next;
+    //             }
+    //             cout << cur -> value;
+    //         }  
+    //         }
+    //     else{
+    //         if(iter == 3) cout << cur ->next -> value;
+    //         else{
+    //             for(int i = 0; i < iter / 2; i++) {
+    //                 cur = cur -> next;
+    //             }
+    //             cout << cur -> value;
+    //         } 
+    //     }
+    // }
+    
+    //! 快慢指標法
+    Node* slow = head;
+    Node* fast = head;
 
+    while(fast != nullptr && fast->next != nullptr){
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    cout << slow -> value;
+}  
+
+void reverse(Node* head){
+    vector<int> arr;
+    Node* cur = head;
+    int iter = 0;
+    while(cur != nullptr){
+        cur = cur ->next;
+        iter ++;
+    }
+    cur = head;
+
+    arr.resize(iter,0);
+    for(int i = 0 ; i < iter ; i++){
+        arr[i] = cur->value;
+        cur = cur -> next;
+    }
+    for(int i = iter-1 ; i>= 0; i--){
+        cout << arr[i] << " ";
+    }
+}
 int main(){
     Node* head = nullptr;
     Node* tail = nullptr;
@@ -247,7 +308,9 @@ int main(){
     // popfront(head);
     // popback(head);
     // remove(head);
-    search(head);
+    // search(head);
+    // findmiddle(head);
+    reverse(head);
 }
 
 
