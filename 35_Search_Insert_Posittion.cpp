@@ -19,6 +19,7 @@ public:
 
     }
 };
+
 class Solution2 {
 public:
     int searchInsert(vector<int>& nums, int target) {
