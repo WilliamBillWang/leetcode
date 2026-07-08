@@ -12,6 +12,7 @@ public:
     }
 };
 
+
 class Solution2 {
 public:
     int mySqrt(int x) {
