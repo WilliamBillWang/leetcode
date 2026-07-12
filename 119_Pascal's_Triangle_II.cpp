@@ -22,6 +22,44 @@ public:
     }
 };
 
+class Solution2 { //Time complexity O(n^2) space complexity O(n)
+public:
+    vector<int> getRow(int rowIndex) {
+        vector<int> prev = {1};
+
+        for (int i = 1; i <= rowIndex; i++) {
+            vector<int> cur;
+            cur.push_back(1);
+
+            for (int j = 1; j < i; j++) {
+                cur.push_back(prev[j - 1] + prev[j]);
+            }
+
+            cur.push_back(1);
+
+            prev = cur;
+        }
+
+        return prev;
+    }
+};
+
+
+class Solution3 { // Using math formula 
+public:
+    vector<int> getRow(int rowIndex) {
+        vector<int> ans;
+
+        long long cur = 1;
+
+        for (int k = 0; k <= rowIndex; k++) {
+            ans.push_back(cur);
+            cur = cur * (rowIndex - k) / (k + 1);
+        }
+
+        return ans;
+    }
+};
 
 int main(){
     Solution solution;
