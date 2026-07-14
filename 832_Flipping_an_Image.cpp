@@ -25,5 +25,5 @@ public:
 int main(){
     Solution solution;
     vector<vector<int>> image = {{1,1,0},{1,0,1},{0,0,0}};
-    solution.flipAndInvertImage(image)
+    solution.flipAndInvertImage(image);
 }
