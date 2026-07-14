@@ -29,5 +29,5 @@ int main(){
     Solution solution;
     string jewels = "aA";
     string stones = "aAAbbbb";
-    solution.numJewelsInStones
+    solution.numJewelsInStones(jewels,stones);
 }
