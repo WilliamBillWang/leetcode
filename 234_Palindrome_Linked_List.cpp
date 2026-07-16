@@ -12,6 +12,7 @@ struct ListNode {
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
+        
         vector<int> arr;
         ListNode* cur = head;
         while(cur != nullptr){
@@ -26,6 +27,44 @@ public:
             r--;
         }
         return true;
+    }
+};
+
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        if(head == nullptr || head->next == nullptr)
+        return true;
+        ListNode* fast = head;
+        ListNode* slow = head;
+
+        while(fast != nullptr && fast -> next != nullptr){
+            fast = fast ->next -> next;
+            slow = slow -> next; 
+        }
+
+        if(fast) slow = slow -> next;
+
+        ListNode* next = nullptr;
+        ListNode* cur = slow;
+        ListNode* prev = nullptr;
+
+        while(cur != nullptr){
+            next = cur -> next;
+            cur -> next = prev;
+            prev = cur;
+            cur = next;
+        }
+
+        ListNode* first = head;
+        ListNode* second = prev;
+        while(second){
+            if(first->val != second->val) return false;
+            first = first -> next;
+            second = second -> next;
+        }
+        return true;
+
     }
 };
 
