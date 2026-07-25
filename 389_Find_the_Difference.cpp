@@ -43,6 +43,6 @@ int main(){
     Solution solution;
     string s = "abcd";
     string t = "abcde";
-    solution findTheDifference(s,t);
+    solution.findTheDifference(s,t);
 }
 
