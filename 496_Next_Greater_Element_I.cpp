@@ -9,9 +9,21 @@ public:
             mp2[nums2[i]] = i;
         }
         vector<int> ans;
+        int index = 0;
+
         for(int x : nums1) {
-            if(mp2[x] + 1 < nums2.size() && nums2[mp2[x]+1] > x) ans.push_back(nums2[mp2[x]+1]);
-            else ans.push_back(-1);
+            index = mp2[x];
+            bool find = false;
+            
+            while(index < nums2.size()){
+                if(nums2[index] > x){
+                    find = true;
+                    ans.push_back(nums2[index]);
+                    break;
+                }
+                index ++;
+            } 
+            if(!find) ans.push_back(-1);
         }
         return ans;
     }
