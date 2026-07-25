@@ -5,7 +5,6 @@ class Solution {
 public:
     int longestPalindrome(string s) {
         unordered_map<char,int> mp;
-        if(s.size() == 1) return 1;
         for(auto x : s) mp[x]++;
         int ans = 0;
         bool add = false;
@@ -24,6 +23,24 @@ public:
     }
 };
 
+
+int longestPalindrome(string s) {
+    unordered_map<char,int> mp;
+
+    for(char c : s)
+        mp[c]++;
+
+    int ans = 0;
+    bool odd = false;
+            //key value
+    for(auto [c, cnt] : mp){
+        ans += cnt / 2 * 2;
+        if(cnt % 2)
+            odd = true;
+    }
+
+    return ans + odd;
+}
 int main(){
     Solution solution;
     string s = "ccc";
