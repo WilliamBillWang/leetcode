@@ -10,10 +10,10 @@ public:
         for(int i =0; i < timeSeries.size() ; i ++){
 
             int nl = timeSeries[i];
-            int nr = timeSeries[i] + duration;
+            int nr = nl + duration;
 
-            if(nl <= r && nr >= r) r = nr;
-            else if(nl >= r){
+            if(nl <= r) r = nr;
+            else{
                 ans += r - l;
                 r = nr;
                 l = nl;
